@@ -2,20 +2,20 @@
 
 /**
  * c_case - function for c case
- * @ap: Character
+ * @list: Character
  * @buff: buffer
  * @print_len: Actual position of buff
  * Return: Last position on buff
  */
 
-int c_case(va_list ap, char *buff, int print_len)
+int c_case(va_list list, char *buff, int print_len)
 {
 	char *c;
 
 	c = malloc((sizeof(char) + 1));
 	if (c == NULL)
 		return (print_len);
-	c[0] = va_arg(ap, int);
+	c[0] = va_arg(list, int);
 	if (c[0] == 0)
 		print_len += 1;
 	c[1] = '\0';
@@ -26,19 +26,19 @@ int c_case(va_list ap, char *buff, int print_len)
 
 /**
  * s_case - function for s case
- * @ap: String
+ * @list: String
  * @buff: buffer
  * @print_len: actual position of buff
  * Return: Last position on buff
  */
 
-int s_case(va_list ap, char *buff, int print_len)
+int s_case(va_list list, char *buff, int print_len)
 {
 	char *s;
 	char *aux;
 	int s_len;
 
-	aux = va_arg(ap, char*);
+	aux = va_arg(list, char*);
 	if (aux == NULL)
 		aux = "(null)";
 	s_len = _strlen(aux);
@@ -53,19 +53,19 @@ int s_case(va_list ap, char *buff, int print_len)
 
 /**
  * dec_case - function for d case
- * @ap: Decimal
+ * @list: Decimal
  * @buff: buffer
  * @print_len : actual position of buff
  * Return: Last position on buff
  */
 
-int dec_case(va_list ap, char *buff, int print_len)
+int dec_case(va_list list, char *buff, int print_len)
 {
 	char *s;
 	char *aux;
 	int s_len, num;
 
-	num = va_arg(ap, int);
+	num = va_arg(list, int);
 	aux = malloc(sizeof(char) * 35);
 	if (aux == NULL)
 		return (1);
@@ -82,13 +82,13 @@ int dec_case(va_list ap, char *buff, int print_len)
 }
 /**
  * perc_case - function for % case
- * @ap: Unused
+ * @list: Unused
  * @buff: buffer
  * @print_len: Actual position of buff
  * Return: Last position on buff
  */
 
-int perc_case(va_list __attribute__((unused)) ap, char *buff, int print_len)
+int perc_case(va_list __attribute__((unused)) list, char *buff, int print_len)
 {
 	char *c;
 
@@ -104,19 +104,19 @@ int perc_case(va_list __attribute__((unused)) ap, char *buff, int print_len)
 
 /**
  * bin_case - function for binary case
- * @ap: intiger to convert into binary
+ * @list: intiger to convert into binary
  * @buff: buffer
  * @print_len : actual position of buff
  * Return: Last position on buff
  */
 
-int bin_case(va_list ap, char *buff, int print_len)
+int bin_case(va_list list, char *buff, int print_len)
 {
 	char *s;
 	char *aux;
 	int s_len, num;
 
-	num = va_arg(ap, int);
+	num = va_arg(list, int);
 	aux = malloc(sizeof(char) * 35);
 	if (aux == NULL)
 		return (1);
