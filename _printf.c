@@ -10,14 +10,14 @@ int _printf(char *format, ...)
 {
 	int i = 0;
 	size_t print_len = 0;
-	va_list ap;
+	va_list list;
 	char buffer[2048];
 	int (*convfun)(va_list, char *, int);
 
 	if (format == NULL || (format[0] == '%' && format[1] == '\0')
 			|| (format[0] == '\\' && format[1] == '\0'))
 		return (-1);
-	va_start(ap, format);
+	va_start(list, format);
 	while (format && format[i])
 	{
 		if (format[i] != '%')
@@ -30,7 +30,7 @@ int _printf(char *format, ...)
 			convfun = get_print_cases(&(format[i + 1]));
 			if (convfun != NULL)
 			{
-				print_len = convfun(ap, &buffer[print_len], print_len);
+				print_len = convfun(list, &buffer[print_len], print_len);
 				i++;
 			}
 			else
@@ -42,6 +42,6 @@ int _printf(char *format, ...)
 		i++;
 	}
 	write(1, buffer, print_len);
-	va_end(ap);
+	va_end(list);
 	return (print_len);
 }

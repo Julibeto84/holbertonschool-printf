@@ -1,10 +1,6 @@
 #include "main.h"
 
-/**
- * get_print_cases - Gets the function to convert arg to string
- * @arg: Argument passed
- * Return: Pointer to right convertion function
- */
+
 
 int (*get_print_cases(char *arg))(va_list, char *, int)
 {
